@@ -3,7 +3,7 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "goalse33a7c48d",
+    "resourceNameTruncated": "goalse6a804ddb",
     "userPoolName": "goalsettingapp",
     "autoVerifiedAttributes": [
       "email"
@@ -22,23 +22,20 @@
       "Requires Numbers"
     ],
     "requiredAttributes": [
-      "email",
-      "name"
+      "name",
+      "email"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "goalse33a7c48d_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "goalse6a804ddb_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "33a7c48d",
+    "sharedId": "6a804ddb",
     "resourceName": "goalsettingapp",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
-    "usernameAttributes": [
-      "email"
-    ],
     "useDefault": "manual",
     "userPoolGroups": false,
     "userPoolGroupList": [],

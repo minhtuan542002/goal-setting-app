@@ -1,4 +1,20 @@
 {
+  "api": {
+    "apiGoalApp": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "goalsettingappa068002d"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "goalsettingapp": {
       "customAuth": false,
@@ -15,19 +31,49 @@
           "passwordPolicyMinLength": 8
         },
         "signupAttributes": [
-          "EMAIL",
-          "NAME"
-        ],
-        "socialProviders": [],
-        "usernameAttributes": [
+          "NAME",
           "EMAIL"
         ],
+        "socialProviders": [],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "function": {
+    "goalsettingappa068002d": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_goalsettingappa068002d_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "goalsettingappa068002d"
+        }
+      ]
+    },
+    "AMPLIFY_function_goalsettingappa068002d_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "goalsettingappa068002d"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "s3goalsettingappstorage673ce886": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }

@@ -14,6 +14,36 @@
     "categories": {
       "auth": {
         "goalsettingapp": {}
+      },
+      "storage": {
+        "s3goalsettingappstorage673ce886": {}
+      },
+      "function": {
+        "goalsettingappa068002d": {
+          "deploymentBucketName": "amplify-amplify566f4cba7c244-staging-34443-deployment",
+          "s3Key": "amplify-builds/goalsettingappa068002d-30465a30666b7a314d35-build.zip"
+        }
+      },
+      "api": {
+        "apiGoalApp": {}
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-goalsettingapp-dev-140620-authRole",
+      "UnauthRoleArn": "arn:aws:iam::046259933227:role/amplify-goalsettingapp-dev-140620-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::046259933227:role/amplify-goalsettingapp-dev-140620-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-goalsettingapp-dev-140620-deployment",
+      "UnauthRoleName": "amplify-goalsettingapp-dev-140620-unauthRole",
+      "StackName": "amplify-goalsettingapp-dev-140620",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:046259933227:stack/amplify-goalsettingapp-dev-140620/c46bed70-af86-11ee-a920-025e74582657",
+      "AmplifyAppId": "dg4pe7fyltlsk"
+    },
+    "categories": {
+      "auth": {
+        "goalsettingapp": {}
       }
     }
   }

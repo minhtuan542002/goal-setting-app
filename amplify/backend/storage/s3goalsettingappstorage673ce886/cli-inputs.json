@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3goalsettingappstorage673ce886",
+  "bucketName": "goal-setting-app-storage-673ce886",
+  "policyUUID": "8be4bd61",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "DELETE",
+    "READ",
+    "CREATE_AND_UPDATE"
+  ]
+}
