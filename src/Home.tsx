@@ -60,7 +60,7 @@ export default class Home extends Component<HomeProps, HomeState> {
         }
         const { body } = await get({ 
           apiName: "apiGoalApp",
-          path: "/GetAllGoals",
+          path: "/",
           options: {
             body: req,
           },
@@ -69,7 +69,12 @@ export default class Home extends Component<HomeProps, HomeState> {
         const json: any = await body.json();
         return json.goals as Goal[];
     }
-    catch (error) {
+    catch (error : any) {
+        // if (typeof error === "string") {
+        //     console.log(error.toUpperCase()) 
+        // } else if (error instanceof Error) {
+        //     console.log(error.message) 
+        // }
         console.log(error);
         return [];
     }
