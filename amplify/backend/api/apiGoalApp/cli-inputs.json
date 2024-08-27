@@ -7,6 +7,20 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/goals": {
+      "name": "/goals",
+      "lambdaFunction": "goalsettingappa068002d",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/goal": {
+      "name": "/goal",
+      "lambdaFunction": "goalsettingappa068002d",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

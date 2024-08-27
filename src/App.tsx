@@ -7,11 +7,10 @@ import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import { withAuthenticator, Heading, Button } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import config from './amplifyconfiguration.json';
-import { type AuthUser } from "aws-amplify/auth";
+import { type AuthUser, fetchAuthSession } from "aws-amplify/auth";
 import { type UseAuthenticator } from "@aws-amplify/ui-react-core";
 import Home from "./Home";
 
-Amplify.configure(config);
 
 type AppProps = {
   signOut?: UseAuthenticator["signOut"];
