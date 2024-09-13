@@ -54,15 +54,14 @@ export default class Home extends Component<HomeProps, HomeState> {
   async goals() {
     try {
         const { username } = await getCurrentUser();
-        
-        const req = {
-          username: username,
-          s3bucket: "myawsbucket-tl",
-        }
         const { body } = await get({ 
           apiName: "apiGoalApp",
-          path: "/items",
-          
+          path: "/goals",
+          options: {
+            headers: {
+              username:username
+            }
+          }
         }).response
         if(!body){throw new Error("Body of the get goal request is null")};
         const json: any = await body.json();
