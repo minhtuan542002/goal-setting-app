@@ -22,7 +22,7 @@ interface AddEditGoalState {
 interface Goal {
   goalId: string;
   title: string;
-  content: string;
+  description: string;
   createdAt: string;
 }
 
@@ -40,7 +40,7 @@ export default class AddEditGoal extends Component<AddEditGoalProps, AddEditGoal
       goal: {
         goalId: '',
         title: '',
-        content: '',
+        description: '',
         createdAt: '',
       },
     };
@@ -83,7 +83,7 @@ export default class AddEditGoal extends Component<AddEditGoalProps, AddEditGoal
         isLoading: false,
         goal: {
           title: json.title,
-          content: json.content,
+          description: json.description,
           goalId: this.props.match.params.id,
           createdAt: json.createdAt,
         }
@@ -96,7 +96,7 @@ export default class AddEditGoal extends Component<AddEditGoalProps, AddEditGoal
   }
 
   validateForm = () => {
-    return this.state.goal.title.length > 0 && this.state.goal.content.length > 0;
+    return this.state.goal.title.length > 0 && this.state.goal.description.length > 0;
   }
 
   handleChange = (event: any) => {
@@ -133,7 +133,7 @@ export default class AddEditGoal extends Component<AddEditGoalProps, AddEditGoal
         goal: {
           goalId: this.props.match.params.id,
           title: goal.title,
-          content: goal.content
+          description: goal.description
         }
       }
       const { body } = await put({ 
@@ -167,7 +167,7 @@ export default class AddEditGoal extends Component<AddEditGoalProps, AddEditGoal
         goal: {
           createdAt: String(Date.now),
           title: goal.title,
-          content: goal.content
+          description: goal.description
         }
       }
       const { body } = await post({ 
@@ -283,11 +283,11 @@ export default class AddEditGoal extends Component<AddEditGoalProps, AddEditGoal
 
               <FormGroup >
                 <FormLabel>Goal description</FormLabel>
-                <FormControl id="content"
+                <FormControl id="description"
                   onChange={this.handleChange}
-                  value={goal.content}
+                  value={goal.description}
                   minLength={1}
-                  isValid={goal.content.length > 0}
+                  isValid={goal.description.length > 0}
                   placeholder="Enter goal description.."
                   as="textarea"
                   required />

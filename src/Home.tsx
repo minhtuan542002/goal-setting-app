@@ -19,7 +19,7 @@ interface HomeState {
 }
 
 interface Goal {
-  content: string;
+  description: string;
   goalId: string;
   title: string;
   createdAt: Date;
@@ -89,7 +89,7 @@ export default class Home extends Component<HomeProps, HomeState> {
       (goal, i) =>
         <tr key={goal.goalId}>
           <td><a href={`/goal/${goal.goalId}`}>{goal.title}</a></td>
-          <td><div className="description">{goal.content.trim().split("\n")[0]}</div></td>
+          <td><div className="description">{goal.description.trim().split("\n")[0]}</div></td>
           <td>{new Date(goal.createdAt).toLocaleString()}</td>
         </tr>
     );
