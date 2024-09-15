@@ -10,6 +10,7 @@ import config from './amplifyconfiguration.json';
 import { type AuthUser, fetchAuthSession } from "aws-amplify/auth";
 import { type UseAuthenticator } from "@aws-amplify/ui-react-core";
 import Home from "./Home";
+import AddEditGoal from './AddEditGoal';
 
 
 type AppProps = {
@@ -45,10 +46,9 @@ const App: React.FC<AppProps> = ({ signOut, user }) => {
         </a>
       </header> */}
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home isAuthenticated={true} />} />
-          {/* <Route path="users/:id" element={<Users />} /> */}
-        </Routes>
+        <Route path="/" element={<Home isAuthenticated={true} />} />
+        <Route path="/goal/:id?" element={<AddEditGoal match={undefined} history={undefined}  />}/>
+        {/* <Route path="users/:id" element={<Users />} /> */}
       </BrowserRouter>
     </div>
   );

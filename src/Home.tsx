@@ -65,7 +65,8 @@ export default class Home extends Component<HomeProps, HomeState> {
           }
         }
       }).response;
-      if(!response){throw new Error("Body of the get goal request is null")};
+      if(response.statusCode != 200){throw new Error("Body of the get goal request is null")};
+      console.log(response);
       const json :string = await response.body.text();
       const goals : Goal[] = JSON.parse(json);
       return goals;

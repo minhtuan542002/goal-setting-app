@@ -27,7 +27,11 @@ interface Goal {
 }
 
 export default class AddEditGoal extends Component<AddEditGoalProps, AddEditGoalState> {
-  constructor(props: AddEditGoalProps) {
+  constructor() {
+    const props : AddEditGoalProps = {
+      match: 's',
+      history: '',
+    };
     super(props);
 
     this.state = {
@@ -69,23 +73,26 @@ export default class AddEditGoal extends Component<AddEditGoalProps, AddEditGoal
         s3bucket: "myawsbucket-tl",
         goalId: goalId,
       }
-      const { body } = await get({ 
+      const response = await get({ 
         apiName: "apiGoalApp",
-        path: "/GetGoal",
+        path: `/goal?goalId=${goalId}`,
         options: {
-          body: req,
-        },
+          headers: {
+            username:username
+          }
+        }
       }).response
-      if(!body){throw new Error("Body of the get goal request is null")};
-      const json: any = await body.json();
+      if(response.statusCode != 200){throw new Error("Body of the get goal request is null")};
+      const json :string = await response.body.text();
+      const goal : Goal = JSON.parse(json);
 
       this.setState({
         isLoading: false,
         goal: {
-          title: json.title,
-          description: json.description,
+          title: goal.title,
+          description: goal.description,
           goalId: this.props.match.params.id,
-          createdAt: json.createdAt,
+          createdAt: goal.createdAt,
         }
       });
     }
