@@ -29,26 +29,11 @@ const App: React.FC<AppProps> = ({ signOut, user }) => {
         <Heading level={3}>Hello {user?.username}</Heading>
         <Button style={styles.signOut} onClick={signOut}>Sign out</Button>
       </div>
-      {/* </div> */}
-      
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
       <BrowserRouter>
-        <Route path="/" element={<Home isAuthenticated={true} />} />
-        <Route path="/goal/:id?" element={<AddEditGoal match={undefined} history={undefined}  />}/>
-        {/* <Route path="users/:id" element={<Users />} /> */}
+        <Routes>
+          <Route path="/" element={<Home isAuthenticated={true} />} />
+          <Route path="/goal/:id?" element={<AddEditGoal />}/>
+        </Routes>
       </BrowserRouter>
     </div>
   );
