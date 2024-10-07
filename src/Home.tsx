@@ -61,7 +61,7 @@ export default class Home extends Component<HomeProps, HomeState> {
         path: "/goals",
         options: {
           headers: {
-            username:username
+            Username:username
           }
         }
       }).response;

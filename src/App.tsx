@@ -11,7 +11,7 @@ import { type AuthUser, fetchAuthSession } from "aws-amplify/auth";
 import { type UseAuthenticator } from "@aws-amplify/ui-react-core";
 import Home from "./Home";
 import AddEditGoal from './AddEditGoal';
-
+ 
 
 type AppProps = {
   signOut?: UseAuthenticator["signOut"];
@@ -20,7 +20,7 @@ type AppProps = {
 
 const App: React.FC<AppProps> = ({ signOut, user }) => {
   return (
-    <div className="App container">
+    <div className="App">
       {/* <div style={styles.navbar}> */}
         {/* <div>
           <Navbar.Brand style={styles.navbutton} href="/">Home</Navbar.Brand>
@@ -29,24 +29,27 @@ const App: React.FC<AppProps> = ({ signOut, user }) => {
         <Heading level={3}>Hello {user?.username}</Heading>
         <Button style={styles.signOut} onClick={signOut}>Sign out</Button>
       </div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home isAuthenticated={true} />} />
-          <Route path="/goal/:id?" element={<AddEditGoal />}/>
-        </Routes>
-      </BrowserRouter>
+      <div className="container">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home isAuthenticated={true} />} />
+            <Route path="/goal/:id?" element={<AddEditGoal />}/>
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }
 
 const styles = {
   container: {
-    margin: "0 auto",
+    marginBottom: "40px",
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-end",
-    padding: 20,
-    gap: 10
+    padding: 10,
+    gap: 10,
+    backgroundColor: "white",
   },
   signOut:{
     margin: "10 auto"

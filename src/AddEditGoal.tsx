@@ -20,7 +20,7 @@ interface Goal {
 }
 
 const AddEditGoal = () => {
-  const { id } = useParams();  // replaces match.params
+  const { id = '' } = useParams<{ id: string }>(); // replaces match.params
   const navigate = useNavigate();  // replaces history
   const [isExistingGoal, setIsExistingGoal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -47,17 +47,12 @@ const AddEditGoal = () => {
     setIsLoading(true);
     try {
       const { username } = await getCurrentUser();
-      const req = {
-        username: username,
-        s3bucket: "myawsbucket-tl",
-        goalId: goalId,
-      }
       const response = await get({ 
         apiName: "apiGoalApp",
         path: `/goal?goalId=${goalId}`,
         options: {
           headers: {
-            username:username
+            Username:username
           }
         }
       }).response
@@ -80,10 +75,11 @@ const AddEditGoal = () => {
 
   const handleChange = (event: any) => {
     const { id, value } = event.target;
-    setGoal((prevGoal) => ({
-      ...prevGoal,
+    setGoal((goal) => ({
+      ...goal,
       [id]: value,
     }));
+    //console.log(goal);
   };
 
   const handleCancel = () => {
@@ -91,8 +87,8 @@ const AddEditGoal = () => {
   };
 
   const handleSubmit = async (event: any) => {
-    event.preventDefault();
     setIsUpdating(true);
+    event.preventDefault();
     if (isExistingGoal) {
       await updateGoal();
     } else {
@@ -103,20 +99,20 @@ const AddEditGoal = () => {
   const updateGoal = async () => {
     try {
       const { username } = await getCurrentUser();
+      console.log(goal);
       const req = {
-        username,
-        s3bucket: "myawsbucket-tl",
-        goal: {
-          goalId: id,
-          title: goal.title,
-          description: goal.description
-        }
+        goalId: id,
+        title: goal.title,
+        description: goal.description,
       };
       await put({
         apiName: "apiGoalApp",
-        path: "/EditGoal",
+        path: "/goal",
         options: { 
-
+          headers: {
+            Username: username,
+          },
+          body: req,
         }
       }).response;
 

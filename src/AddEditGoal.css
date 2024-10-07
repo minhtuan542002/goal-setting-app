@@ -1,4 +1,4 @@
-.goal {
+  .goal {
     margin: 0 auto;
     width: 80%;
   }
@@ -14,6 +14,11 @@
   
   .form-body {
     clear: both;
+    margin-bottom: 10px;
+  }
+
+  .form-body > div{
+    padding: 10px 0px;
   }
   
   .goal .form-group .control-label {
@@ -26,4 +31,8 @@
   
   #contained-modal {
     color: black;
+  }
+
+  .float-right {
+    float: right !important;
   }
