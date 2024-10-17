@@ -1,46 +1,73 @@
-# goal-setting-app# Getting Started with Create React App
+# Goal Setting App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a goal-setting application that helps users create, manage, and track their goals. The front-end is built with **React** , managed using **npm**, while the back-end is powered by **AWS Amplify** and connected to an **API Gateway** for handling API requests and responses.
 
-## Available Scripts
+See the demo version: https://main.dhzndzwhznvg2.amplifyapp.com/
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+1. [Features](#features)
+2. [Tech Stack](#tech-stack)
+3. [Prerequisites](#prerequisites)
+4. [Installation](#installation)
+5. [AWS Amplify Setup](#aws-amplify-setup)
+6. [Running the App](#running-the-app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **User Authentication**: Secure authentication using AWS Amplify’s Auth module.
+- **Goal CRUD**: Users can set and update their goals.
+- **Responsive UI**: Fully responsive front-end for desktop and mobile.
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Front-end**: React, TypeScript, CSS
+- **Back-end**: AWS Amplify, API Gateway, AWS Lambda
+- **API Management**: AWS API Gateway, Lambda
+- **Data Storage**: AWS S3
+- **Authentication**: AWS Amplify Auth
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run this project locally, ensure you have the following installed:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Node.js** (version 14 or higher)
+- **npm** (version 6 or higher)
+- **AWS Amplify CLI** (for backend deployment)
+  - Install using: `npm install -g @aws-amplify/cli`
+- AWS account configured in your environment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+1. **Clone the repository**:
+   ```bash
+      git clone https://github.com/minhtuan542002/goal-setting-app.git
+      cd goal-setting-app
+   ```
+2. **Install dependencies and Set up AWS Amplify**:
+   ```bash
+      npm install
+      amplify init
+      amplify push
+   ```
+**Auth Module:** Handles user sign-up, sign-in, and sign-out processes.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+   amplify add auth
+```
+**API Setup:** The API is managed via AWS API Gateway and connected to a Lambda function for handling requests.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+   amplify add api
+```
+Run amplify push after adding each of these features to deploy changes to the AWS backend.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## AWS Amplify Setup
+AWS Amplify is used for user authentication, API connections, and data storage.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Running the App
+Once everything is set up, you can run the development server with:
+```bash
+   npm start
+```
+This will run the app in development mode on http://localhost:3000. The app will reload if you make changes to the code.
