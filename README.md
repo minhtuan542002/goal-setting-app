@@ -50,6 +50,10 @@ To run this project locally, ensure you have the following installed:
       amplify init
       amplify push
    ```
+
+## AWS Amplify Setup
+AWS Amplify is used for user authentication, API connections, and data storage.
+
 **Auth Module:** Handles user sign-up, sign-in, and sign-out processes.
 
 ```bash
@@ -61,9 +65,6 @@ To run this project locally, ensure you have the following installed:
    amplify add api
 ```
 Run amplify push after adding each of these features to deploy changes to the AWS backend.
-
-## AWS Amplify Setup
-AWS Amplify is used for user authentication, API connections, and data storage.
 
 ## Running the App
 Once everything is set up, you can run the development server with:
