@@ -99,7 +99,7 @@ const AddEditGoal = () => {
   const updateGoal = async () => {
     try {
       const { username } = await getCurrentUser();
-      console.log(goal);
+      //console.log(goal);
       const req = {
         goalId: id,
         title: goal.title,
@@ -127,18 +127,19 @@ const AddEditGoal = () => {
     try {
       const { username } = await getCurrentUser();
       const req = {
-        username,
-        s3bucket: "myawsbucket-tl",
-        goal: {
-          createdAt: String(Date.now()),
-          title: goal.title,
-          description: goal.description
-        }
+        createdAt: new Date().toISOString(),
+        title: goal.title,
+        description: goal.description
       };
       await post({
         apiName: "apiGoalApp",
-        path: "/CreateGoal",
-        options: { body: req }
+        path: "/goal",
+        options: { 
+          headers: {
+            Username: username,
+          },
+          body: req,
+        }
       }).response;
 
       setIsUpdating(false);
@@ -152,16 +153,13 @@ const AddEditGoal = () => {
     setIsDeleting(true);
     try {
       const { username } = await getCurrentUser();
-      const req = {
-        username,
-        s3bucket: "myawsbucket-tl",
-        goalId: id,
-      };
       await del({
         apiName: "apiGoalApp",
-        path: "/DeleteGoal",
-        options: { 
-          
+        path: `/goal?goalId=${id}`,
+        options: {
+          headers: {
+            Username:username
+          }
         }
       }).response;
 

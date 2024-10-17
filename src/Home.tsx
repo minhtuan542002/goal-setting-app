@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, Table, Spinner } from "react-bootstrap";
 import { getCurrentUser } from 'aws-amplify/auth';
 import { get } from "@aws-amplify/api";
-//import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 //import fullStack from "../../images/full-stack.png";
 import "./Home.css";
@@ -43,9 +43,9 @@ export default class Home extends Component<HomeProps, HomeState> {
 
     try {
       const goals = await this.goals();
-      console.log(goals);
+      //console.log(goals);
       this.setState({ goals });
-      console.log(goals);
+      //console.log(goals);
     } catch (e) {
       alert(e);
     }
@@ -66,7 +66,7 @@ export default class Home extends Component<HomeProps, HomeState> {
         }
       }).response;
       if(response.statusCode != 200){throw new Error("Body of the get goal request is null")};
-      console.log(response);
+      //console.log(response);
       const json :string = await response.body.text();
       const goals : Goal[] = JSON.parse(json);
       return goals;
@@ -77,7 +77,7 @@ export default class Home extends Component<HomeProps, HomeState> {
         // } else if (error instanceof Error) {
         //     console.log(error.message) 
         // }
-        console.log(error);
+        //console.log(error);
         //console.log('GET call failed: ', JSON.parse(error.response.json));
         return [];
     }
@@ -147,7 +147,7 @@ export default class Home extends Component<HomeProps, HomeState> {
   render() {
     let { redirect } = this.state;
     if (redirect) {
-      // return <redirect push to={'/goal/'} />;
+      return <Navigate to="/goal/" replace />;
     }
 
     return (
